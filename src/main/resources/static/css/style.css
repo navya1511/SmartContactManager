@@ -1,0 +1,93 @@
+body{
+	background-color:#fffff0;
+}
+
+.bg-primary{
+	background-color:#191970 !important;
+}
+
+.banner{
+	width:100%;
+	height:98vh;
+	background:linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.6)), url(../images/manager.png);
+	 background-size: contain; 
+	color: #191970;
+	
+}
+
+.mycard{
+	padding:20px;
+	background:white;
+	
+}
+
+@media only screen and (max-width:600px){
+	.sidebar{
+	width:80 !important%;
+	display:none;
+	background:white;
+	height:100vh;
+	position:fixed;
+	padding-top:45px;
+}
+.content{
+	margin-left:0%!important;
+}
+}
+
+.sidebar{
+	width:18%;
+	background:white;
+	height:100vh;
+	position:fixed;
+	padding-top:45px;
+	margin-top:40px;
+}
+
+.sidebar a{
+	display:block;
+	width:100%;
+	color: #191970;
+	padding:10px 25px;
+	text-decoration:none;
+}
+.sidebar a:hover{
+	background:#191970;
+	color:white;
+	
+}
+
+.sidebar .divider{
+	height:2px;
+	width:100%;
+	background: #191970;
+	margin-top:20px;
+}
+.content{
+	margin-top:7vh;
+	margin-left:20%;
+}
+
+.crossbtn{
+	top:0;
+	position:absolute;
+	right:20px;
+	font-size:30px;
+	cursor:pointer;
+}
+
+
+.profile_picture{
+	width:30px;
+	height:30px;
+	border-radius: 50%;
+	border:1px solid black;
+}
+
+.defaultcolor{
+	color: #191970;
+}
+
+.bgcolor{
+	background: #191970;
+}

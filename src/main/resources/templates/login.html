@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="${title}">Document</title>
+	<link rel="stylesheet" th:href="@{/css/login.css}">
+		
+
+</head>
+<body>
+	
+	<section>
+		<div class="container">
+		<div class="row">
+			<div class="col-md-8 offset-md-2">
+				
+				<div class="mycard mt-3">
+
+				
+					
+					<form th:action="@{/login}" method="post"  novalidate="novalidate">
+					<h1 class="text-center">Login</h1>
+					<div th:if="${param.error}" class="alert alert-danger">Invalid Username or Password</div>
+					<div th:if="${param.logout}" class="alert alert-success">You have been logged out.</div>
+							<div class="mb-3">
+						    <label for="emailField" class="form-label">Username</label>
+						    <input 
+						    name="username"
+						    type="email" 
+						    class="form-control" 
+						    id="emailField" 
+						    aria-describedby="emailHelp"
+						    placeholder="Enter your Email"
+						    
+						    
+						    required>
+						    
+						 </div>
+						 <div class="mb-3">
+						    <label for="passField" class="form-label">Password</label>
+						    <input
+						    name="password" 
+						    type="password" 
+						    class="form-control" 
+						    id="passField" 
+						    aria-describedby="emailHelp"
+						    placeholder="Enter your Password"
+						    required>
+						    
+						 </div>
+						 
+						 
+						 <div class="container text-center">
+						 	<button class="btn bg-primary text-white" type="submit">Submit</button>
+						 
+						 </div>
+					
+					</form>
+				</div>
+			</div>
+		</div>
+		</div>
+	
+	</section>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="${title}">Document</title>
+</head>
+<body>
+	
+	<section>
+		<div class="container">
+		<div class="row">
+			<div class="col-md-8 offset-md-2">
+				
+				<div class="mycard mt-3">
+				<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-primary text-center" role="alert">
+				    <p th:text="${session.message.content}"></p>
+				    <th:block th:remove="all">[[${session.removeAttribute('message')}]]</th:block>
+				    <!-- <th:block th:text="${#session.removeAttribute('message')}"></th:block> -->
+				</div>
+
+				<h1 class="text-center">Register here</h1>
+					<form th:action="@{/register}" method="post" th:object="${user}" novalidate="novalidate">
+						<div class="mb-3">
+						    <label for="nameField" class="form-label">Name</label>
+						    <input 
+						    name="name"
+						    type="text" 
+						    class="form-control" 
+						    id="nameField" 
+						    aria-describedby="emailHelp"
+						    placeholder="Enter your Name"
+						    th:value="${user.name}"
+						    required
+						    th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
+						    <div id="validationServer04Feedback" class="invalid-feedback" th:each="e: ${#fields.errors('name')}" th:text="${e}">
+						   
+						    </div>
+						 </div>
+							<div class="mb-3">
+						    <label for="emailField" class="form-label">Email</label>
+						    <input 
+						    name="email"
+						    type="email" 
+						    class="form-control" 
+						    id="emailField" 
+						    aria-describedby="emailHelp"
+						    placeholder="Enter your Email"
+						    th:value="${user.email}"
+						    th:classappend="${#fields.hasErrors('email')} ? 'is-invalid' : ''"
+						    required>
+						    <div id="validationServer04Feedback" class="invalid-feedback" th:each="e: ${#fields.errors('email')}" th:text="${e}"></div>
+						 </div>
+						 <div class="mb-3">
+						    <label for="passField" class="form-label">Password</label>
+						    <input
+						    name="password" 
+						    type="password" 
+						    class="form-control" 
+						    id="passField" 
+						    aria-describedby="emailHelp"
+						    placeholder="Enter your Password"
+						    th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''"
+						    required>
+						    <div id="validationServer04Feedback" class="invalid-feedback" th:each="e: ${#fields.errors('password')}" th:text="${e}"></div>
+						 </div>
+						 <div class="mb-3">
+						    <label for="aboutField" class="form-label">About</label>
+						    <textarea 
+						    name="about"
+						    rows="10"
+						    class="form-control" 
+						    id="aboutField" 
+						    aria-describedby="emailHelp"
+						    th:text="${user.about}"
+						    th:classappend="${#fields.hasErrors('about')} ? 'is-invalid' : ''"
+						    placeholder="Enter about yourself"></textarea>
+						    <div id="validationServer04Feedback" class="invalid-feedback" th:each="e: ${#fields.errors('about')}" th:text="${e}"></div>
+						 </div>
+						 <div class="mb-3 form-check">
+						  <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="agreement" >
+						  <label class="form-check-label" for="flexCheckDefault">
+						    Accept Terms and Conditions
+						  </label>
+						</div>
+						 <div class="container text-center">
+						 	<button class="btn bg-primary text-white" type="submit">Submit</button>
+						 	<button class="btn bg-light" style="color:#191970; border:1px solid #191970;" type="reset">Reset</button>
+						 </div>
+					
+					</form>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+</body>
+</html>
